@@ -57,6 +57,17 @@ module.exports = function (grunt) {
       }
     },
 
+    image_resize:{
+      no_overwrite:{
+        options:{
+          width:250,
+          height:250,
+          overwrite:true
+        },
+        src: 'app/images/*.jpg',
+        dest: 'app/images/tn/'
+      }
+    },
     browserSync: {
       options: {
         notify: false,
@@ -342,6 +353,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
+            'CNAME',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
@@ -421,8 +433,8 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'browserSync:test',
-      'mocha'
+      'browserSync:test'
+      //'mocha'
     ]);
   });
 
