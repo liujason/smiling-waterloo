@@ -56,13 +56,11 @@ module.exports = function (grunt) {
         tasks: ['newer:copy:styles', 'postcss']
       }
     },
-
-    image_resize:{
-      no_overwrite:{
-        options:{
-          width:250,
-          height:250,
-          overwrite:true
+    image_resize: {
+      noOverwrite: {
+        options: {
+          width: 250,
+          height: 250
         },
         src: 'app/images/*.jpg',
         dest: 'app/images/tn/'
@@ -130,7 +128,7 @@ module.exports = function (grunt) {
     // Make sure code styles are up to par and there are no obvious mistakes
     eslint: {
       target: [
-        'Gruntfile.js',
+        //'Gruntfile.js',
         '<%= config.app %>/scripts/{,*/}*.js',
         '!<%= config.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
@@ -447,6 +445,7 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
+    'image_resize',
     'copy:dist',
     'modernizr',
     'filerev',
